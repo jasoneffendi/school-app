@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <%- include partial/head.ejs %>
+  <body>
+    <%- include partial/h1.ejs %>
+    <hr>
+    <a href="/students">Show All Students</a>
+    <br><br>
+    <form class="" action="/students/add" method="POST">
+      <p>First Name
+        <br>
+        <input type="text" name="first_name" value="" placeholder="first_name">
+      </p>
+      <p>
+        Last Name
+        <br>
+        <input type="text" name="last_name" value="" placeholder="last_name">
+      </p>
+      <p>
+        Email
+        <br>
+        <input type="email" name="email" value="" placeholder="email">
+      </p>
+      <input type="submit" value="SAVE">
+    </form>
+
+  </body>
+</html>

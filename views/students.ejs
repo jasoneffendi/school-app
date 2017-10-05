@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <%- include partial/head.ejs %>
+  <body>
+    <%- include partial/h1.ejs %>
+    <%- include partial/menu.ejs %>
+    <hr>
+    <h2>Data Students</h2>
+    <a href="/students/add"> Add Students</a>
+    <br>
+    <br>
+    <table border="1" class="w3-table-all w3-hoverable">
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Action</th>
+        <th>Option</th>
+      </tr>
+      <% data_students.forEach(row => { %>
+      <tr>
+        <td><%=row.id %></td>
+        <td><%=row.first_name %></td>
+        <td><%=row.last_name %></td>
+        <td><%=row.email %></td>
+        <td><a href="/students/<%=row.id%>/addsubject">Add subjects</a>   </td>
+        <td>
+          <a href="/students/edit/<%=row.id%>">EDIT</a> |
+          <a href="/students/delete/<%=row.id%>" onclick="return confirm(' delete this student?')" >DELETE</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+    <br>
+    <%- include partial/home.ejs %>
+  </body>
+</html>

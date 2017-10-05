@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<%if(session.user.role === "Teacher") {%>
+    <div class="w3-bar w3-light-grey">
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Subjects</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/subjects" class="w3-bar-item w3-button">Subjects List</a>
+                </div>
+            </div>
+    
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Teachers</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/teachers" class="w3-bar-item w3-button">Teachers List</a>
+                    <a href="/teachers/add" class="w3-bar-item w3-button">Add a Teacher</a>
+                </div>
+            </div>
+    
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Students</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/students" class="w3-bar-item w3-button">Students List</a>
+                    <a href="/students/add" class="w3-bar-item w3-button">Add a Student</a>
+                </div>
+            </div>
+            <a href='/logout' class="w3-bar-item w3-button">Logout</a>
+        </div>
+<%}%>
+
+<%if(session.user.role === "Academic") {%>
+    <div class="w3-bar w3-light-grey">
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Subjects</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/subjects" class="w3-bar-item w3-button">Subjects List</a>
+                </div>
+            </div>
+    
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Teachers</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/teachers" class="w3-bar-item w3-button">Teachers List</a>
+                </div>
+            </div>
+            <a href='/logout' class="w3-bar-item w3-button">Logout</a>
+        </div>
+<%}%>
+
+<%if(session.user.role === "Headmaster") {%>
+    <div class="w3-bar w3-light-grey">    
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Teachers</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/teachers" class="w3-bar-item w3-button">Teachers List</a>
+                    <a href="/teachers/add" class="w3-bar-item w3-button">Add a Teacher</a>
+                </div>
+            </div>
+    
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Students</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/students" class="w3-bar-item w3-button">Students List</a>
+                    <a href="/students/add" class="w3-bar-item w3-button">Add a Student</a>>
+                </div>
+            </div>
+            <a href='/logout' class="w3-bar-item w3-button">Logout</a>
+        </div>
+<%}%>

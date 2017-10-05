@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <%- include partial/head.ejs %>
+  <body>
+    <%- include partial/h1.ejs %>
+    <%- include partial/menu.ejs %>
+    <table border="1" class="w3-table-all w3-hoverable">
+        <tr>
+          <td>Name</td>
+          <td>Score</td>
+          <td>Score by Letter</td>
+        </tr>
+          <% data_subjects.Students.forEach(row => {  %>
+        <tr>
+          <td><%= row.first_name + ' ' + row.last_name%></td>
+          <td>
+            <% if(row.SubjectStudent.score !== null) {%>
+              <%= row.SubjectStudent.score%>
+            <% } else { %>
+              <a href="/subjects/<%=row.SubjectStudent.id%>/givescore%>">Give Score</a>
+              <!-- /subjects/<%= row.SubjectStudent.id%>/givescore -->
+            <%  } %>
+          </td>
+          <td>
+            <%=row.score_letter %>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+      <a href="/subjects" class="w3-button w3-block w3-teal">Return to Subject List</a>
+  </body>
+</html>

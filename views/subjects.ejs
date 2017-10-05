@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <%- include partial/head.ejs %>
+  <body>
+    <%- include partial/h1.ejs %>
+    <%- include partial/menu.ejs %>
+    <hr>
+    <h2>Data Subjects</h2>
+    <table border="1" class="w3-table-all w3-hoverable">
+      <tr>
+          <th>Id</th>
+          <th>Subject Name</th>
+          <th>Teacher's Name</th>
+          <th>Action</th>
+        </tr>
+        <% data_subjects.forEach(row => { %>
+        <tr>
+          <td><%=row.id%></td>
+          <td><%=row.subject_name%></td>
+          <td>
+            <% if(row.Teachers.length > 0) { %>
+                <% row.Teachers.forEach((teacher, index) => { %>
+                    <%= (index+1) + '. '+ teacher.first_name + ' ' + teacher.last_name%>
+                    <br><br>
+                <% }) %>
+            <% } else {%>
+              -
+            <% } %>
+          </td>
+          <td>
+            <a href="/subjects/<%=row.id%>/enrolledstudents">Enrolled Student</a>
+          </td>
+        </tr>
+        <% }) %>
+  
+      </table>
+      <br>
+    <br>
+    <%- include partial/home.ejs %>
+  </body>
+</html>

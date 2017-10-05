@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <%- include partial/head.ejs %>
+  <body>
+    <%- include partial/h1.ejs %>
+    <%- include partial/menu.ejs %>
+    <hr>
+    <a href="/students">Show All Students</a>
+    <br><br>
+    <form class="" action="/students/edit/<%= student[0].id%>" method="POST">
+      <p>First Name
+        <br>
+        <input type="text" name="first_name" value="<%= student[0].first_name%>" placeholder="first_name">
+      </p>
+      <p>
+        Last Name
+        <br>
+        <input type="text" name="last_name" value="<%= student[0].last_name%>" placeholder="last_name">
+      </p>
+      <p>
+        Email
+        <br>
+        <input type="email" name="email" value="<%= student[0].email%>" placeholder="email">
+      </p>
+      <input type="submit" value="SAVE">
+    </form>
+
+  </body>
+</html>

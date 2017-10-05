@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head.ejs %>
+  <body>
+    <%- include ../partial/h1.ejs %>
+    <%- include ../partial/menu.ejs %>
+    <hr>
+    <a href="/teachers">Show All Teachers</a>
+    <br><br>
+    <form class="" action="/teachers/edit/<%= teacher[0].id%>" method="POST">
+      <p>First Name
+        <br>
+        <input type="text" name="first_name" value="<%= teacher[0].first_name%>" placeholder="first_name">
+      </p>
+      <p>
+        Last Name
+        <br>
+        <input type="text" name="last_name" value="<%= teacher[0].last_name%>" placeholder="last_name">
+      </p>
+      <p>
+        Email
+        <br>
+        <input type="email" name="email" value="<%= teacher[0].email%>" placeholder="email">
+      </p>
+      <p>
+        <select class="" name="SubjectId">
+          <% data_subjects.forEach(row => { %>
+          <option value="<%=row.id%>"
+
+            <% if(teacher[0].SubjectId == row.id ) { %>
+            selected
+            <% } %>
+
+            ><%=row.subject_name%></option>
+          <% }) %>
+        </select>
+      </p>
+      <input type="submit" value="SAVE">
+    </form>
+
+  </body>
+</html>

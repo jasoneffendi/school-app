@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <!-- <head>
+    <title><%= title%></title>
+  </head> -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <%- include ../partial/head.ejs %>
+  <body>
+    <%- include ../partial/h1.ejs %>
+    <%- include ../partial/menu.ejs %>
+    <hr>
+    <h2>Data Teachers</h2>
+    <table border="1" class="w3-table-all w3-hoverable">
+      <tr>
+        <th>Id Teacher</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Options</th>
+      </tr>
+      <% data_teachers.forEach(row => { %>
+      <tr>
+        <td><%=row.id%></td>
+        <td><%=row.first_name%></td>
+        <td><%=row.last_name%></td>
+        <td><%=row.email%></td>
+        <% if(row.SubjectId !== null) {%>
+          <td><%=row.Subject.subject_name%></td>
+        <%} else {%>
+          <td>unassigned</td>
+        <%}%>
+       
+        <td>
+          <a href="/teachers/edit/<%=row.id%>">EDIT</a> |
+          <a href="/teachers/delete/<%=row.id%>">DELETE</a>
+        </td>
+      </tr>
+      <% }) %>
+
+    </table>
+    <br>
+
+    <a href="/teachers/add" class="w3-button w3-block w3-teal">Add Teacher</a>
+    <%- include ../partial/home.ejs %>
+  </body>
+</html>

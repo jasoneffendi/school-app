@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <%- include partial/head.ejs %>
+  <body>
+    <%- include partial/h1.ejs %>
+    <%- include partial/menu.ejs %>
+    <table class="w3-table-all w3-hoverable">
+      <tr>
+        <th>Student Name</th>
+        <th><%= data_SubjectStudent[0].Student.first_name + ' ' + data_SubjectStudent[0].Student.last_name%></th>
+      </tr>
+      <tr>
+        <td>Subject</td>
+        <td><%= data_SubjectStudent[0].Subject.subject_name %></td>
+      </tr>
+    </table>
+    <p align="center">
+      Score:
+      <div align="center">
+        <form class="" action="/subjects/<%= data_SubjectStudent[0].id %>/givescore" method="post">
+          <input class="w3-input" style="width:25%" type="number" name="score" value="" placeholder="Input Score">
+          <input class="w3-input" style="width:25%"type="submit" name="" value="Add Score" >
+        </form>
+      </div>
+    </p>
+  </body>
+</html>
