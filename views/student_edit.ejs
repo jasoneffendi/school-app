@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
     <%- include partial/head.ejs %>
-  <body>
+  <body align='center'>
     <%- include partial/h1.ejs %>
     <%- include partial/menu.ejs %>
     <hr>
     <a href="/students">Show All Students</a>
     <br><br>
+    <div class="w3-container w3-teal">
+      <%if(err) {%>
+        <h3>Email is already in use</h3>
+      <%}%>
+    </div>    
+   
     <form class="" action="/students/edit/<%= student[0].id%>" method="POST">
       <p>First Name
         <br>

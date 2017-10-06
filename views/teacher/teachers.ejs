@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <!-- <head>
-    <title><%= title%></title>
-  </head> -->
+  <style>
+    h3 {
+    -webkit-column-span: all; /* Chrome, Safari, Opera */
+    column-span: all;
+    }
+    </style>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <%- include ../partial/head.ejs %>
   <body>
@@ -37,10 +40,8 @@
         </td>
       </tr>
       <% }) %>
-
+          
     </table>
-    <br>
-
     <a href="/teachers/add" class="w3-button w3-block w3-teal">Add Teacher</a>
     <%- include ../partial/home.ejs %>
   </body>

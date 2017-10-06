@@ -17,8 +17,24 @@ router.get('/', (req, res)=>{
     include :[{model: models.Teacher}]
   })
     .then(data_subjects => {
-      res.render('subjects', {data_subjects: data_subjects, title: "Halaman Subjects", head: "Subjects", session: req.session})  
+      console.log(req.session.err)
+      res.render('subjects', {data_subjects: data_subjects, title: "Halaman Subjects", head: "Subjects", session: req.session,err:req.session.err})  
+      // res.send(data_subjects)
     })
+})
+
+router.post('/add', (req, res)=>{
+  models.Subjects.create({
+    subject_name: `${req.body.subjectName}`,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  })
+  .then(() => {
+    res.redirect('/subjects')
+  })
+  .catch(err => {
+    console.log(err);
+  })
 })
 
 router.get('/:id/enrolledstudents', (req, res) => {
@@ -38,10 +54,13 @@ router.get('/:id/enrolledstudents', (req, res) => {
             student.score_letter = score_letter(student.SubjectStudent.score)
             count++
             if(count >= data_subjects[0].Students.length){
+              req.session.err = false              
               res.render('subject_enrolled_student', {data_subjects: data_subjects[0], title: "Enrolled Students", session: req.session, head: "Enrolled Students"})
             }
           })
         } else {
+          req.session.err = true
+          console.log(req.session.err)
           res.redirect('/subjects')
         }
       })

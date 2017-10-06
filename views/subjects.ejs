@@ -7,6 +7,11 @@
     <%- include partial/menu.ejs %>
     <hr>
     <h2>Data Subjects</h2>
+    <%if(err){%>
+      <div class="w3-container w3-red">
+        <h3>No Enrolled Students</h3>
+      </div>
+    <%}%>
     <table border="1" class="w3-table-all w3-hoverable">
       <tr>
           <th>Id</th>
@@ -35,6 +40,14 @@
         <% }) %>
   
       </table>
+      <%if(session.user.role === "Teacher") {%>
+      <div align='center'>
+        <form class="" action="/subjects/add" method="POST">
+          <input type="text" name="subjectName" value="" placeholder="Subject Name">
+          <input type="submit" value="Add">
+        </form>
+      </div>
+      <%}%>
       <br>
     <br>
     <%- include partial/home.ejs %>

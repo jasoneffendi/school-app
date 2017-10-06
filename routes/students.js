@@ -73,7 +73,7 @@ router.get('/edit/:id/', (req, res) => {
     }
   })
   .then( student => {
-    res.render('student_edit',{student: student, title: "Halaman Edit Students", head: "EDIT STUDENTS", session: req.session})
+    res.render('student_edit',{student: student,err:false, title: "Halaman Edit Students", head: "EDIT STUDENTS", session: req.session})
     // res.send(student)
   })
   .catch(err => {
@@ -135,7 +135,7 @@ router.post('/edit/:id', (req, res) => {
               createdAt: new Date(),
               updatedAt: new Date()
             }]
-            res.render('student_edit',{student: data_temporary, data_error: true, title: "Halaman Edit Students", head: "EDIT STUDENTS", session: req.session})
+            res.render('student_edit',{student: data_temporary, data_error: true,err: true, title: "Halaman Edit Students", head: "EDIT STUDENTS", session: req.session})
           })
           .catch(err => {console.log('err 2' + err)})
         })

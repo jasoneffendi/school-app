@@ -5,6 +5,11 @@
     <body align='center'>
         <p>
             <h1>LOGIN</h1>
+            <%if(err) {%>  
+                <div class="w3-container w3-red">
+                    <td>Incorrect Username or Password</td>
+                </div>
+            <%}%>
             <div align='center'>
                 <form class ='' action='/login' method='post'>
                     <input class="w3-input" style="width:25%" type='text' name='username' value='' placeholder='Username'>
@@ -16,7 +21,3 @@
         <a href="/register">Register</a>
     </body>
 </html>
-
-<style>
-
-</style>
