@@ -54,10 +54,12 @@ router.get('/:id/enrolledstudents', (req, res) => {
             student.score_letter = score_letter(student.SubjectStudent.score)
             count++
             if(count >= data_subjects[0].Students.length){
-              req.session.err = false              
+              req.session.err = false           
+              // res.send(data_subjects[0])   
               res.render('subject_enrolled_student', {data_subjects: data_subjects[0], title: "Enrolled Students", session: req.session, head: "Enrolled Students"})
             }
           })
+          // res.send(data_subjects)
         } else {
           req.session.err = true
           console.log(req.session.err)
@@ -82,6 +84,7 @@ router.get('/:id/givescore', (req, res) => {
     })
     .then(data_SubjectStudent => {
       res.render('give_score',{data_SubjectStudent: data_SubjectStudent, title: "Halaman Memberi Nilai",head: "GIVE SCORE", session: req.session})
+      // res.send(data_SubjectStudent)
     })
     .catch(err => {
       console.log(err);

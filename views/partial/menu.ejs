@@ -24,6 +24,7 @@
                 </div>
             </div>
             <a href='/logout' class="w3-bar-item w3-button">Logout</a>
+            <a href='/useredit/<%=session.user.username%>' class="w3-bar-item w3-button w3-blue w3-right"><%=session.user.username%></a>
         </div>
 <%}%>
 
@@ -43,6 +44,8 @@
                 </div>
             </div>
             <a href='/logout' class="w3-bar-item w3-button">Logout</a>
+            <a href='/useredit/<%=session.user.username%>' class="w3-bar-item w3-button">Edit Profile</a>            
+            <a href='/useredit/<%=session.user.username%>' class="w3-bar-item w3-button w3-blue w3-right"><%=session.user.username%></a>
         </div>
 <%}%>
 
@@ -64,5 +67,7 @@
                 </div>
             </div>
             <a href='/logout' class="w3-bar-item w3-button">Logout</a>
+            <a href='/useredit/<%=session.user.username%>' class="w3-bar-item w3-button">Edit Profile</a>            
+            <a href='/useredit/<%=session.user.username%>' class="w3-bar-item w3-button w3-blue w3-right"><%=session.user.username%></a>
         </div>
 <%}%>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <%- include partial/head.ejs %>
+  <body>
+    <%- include partial/h1.ejs %>
+    <hr>
+    <h2>Data User</h2>
+    <br>
+    <br>
+    <table border="1" class="w3-table-all w3-hoverable">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>password</th>
+        <th>role</th>
+        <th>Action</th>
+        <th>Option</th>
+      </tr>
+      <% data.forEach(row => { %>
+      <tr>
+        <td><%=row.id %></td>
+        <td><%=row.username %></td>
+        <td><%=row.password %></td>
+        <td><%=row.role %></td>
+        <td>
+          <a href="/useredit/<%=row.username%>">EDIT</a> |
+          <a href="/delete/<%=row.id%>" onclick="return confirm(' delete this student?')" >DELETE</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+    <br>
+    <%- include partial/home.ejs %>
+  </body>
+</html>
